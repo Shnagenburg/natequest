@@ -29,9 +29,9 @@ public class SoundManager {
 
 	public static Sound meow;
 	public static Sound bark;
-	public static Music theme;
-	public static Music battle;
-	public static Music town;
+	public static Music intro;
+	public static Music loop;
+	public static Music reunited;
 	private static boolean musicIsOn = true;
 	private static boolean soundIsOn = true;
 
@@ -57,11 +57,9 @@ public class SoundManager {
 			warpin = new Sound("sounds/wizarddead.ogg");
 			wizarddead = new Sound("sounds/wizarddead.ogg");
 
-			meow = new Sound("sounds/meow1.ogg");
-			theme = new Music("sounds/Click on the Cat.ogg");
-			bark = new Sound("sounds/bark1.ogg");
-			battle = new Music("sounds/battle.ogg");
-			town = new Music("sounds/town.ogg");
+			intro = new Music("sounds/intro.ogg");
+			reunited = new Music("sounds/reunited.ogg");
+			loop = new Music("sounds/loop.ogg");
 		} catch (SlickException e) {
 
 			System.out.println("we couldnt find the sound!");
@@ -73,8 +71,11 @@ public class SoundManager {
 	public static void setMusicIsOn(boolean isOn) {
 		musicIsOn = isOn;
 		if (!musicIsOn) {
-			theme.stop();
-			town.stop();
+			intro.stop();
+			reunited.stop();
+			loop.stop();
+		} else {
+			startJammin();
 		}
 	}
 
@@ -107,6 +108,31 @@ public class SoundManager {
 	public static void playMusic(Music music, float speed) {
 		if (musicIsOn) {
 			music.loop(speed, 1);
+		}
+	}
+
+	public static void startJammin() {
+		if (musicIsOn) {
+			intro.play();
+		}
+	}
+
+	public static void checkMusic() {
+		if (musicIsOn) {
+			if (!intro.playing() && !reunited.playing() && !loop.playing()) {
+				loop.loop();
+			}
+		}
+	}
+
+	public static void startReunited() {
+		if (musicIsOn) {
+			if (!reunited.playing()) {
+				intro.stop();
+				reunited.stop();
+				loop.stop();
+				reunited.play();
+			}
 		}
 	}
 

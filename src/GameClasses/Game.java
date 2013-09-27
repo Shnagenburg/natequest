@@ -62,8 +62,9 @@ public class Game {
 		CUtil.LevelPool = levelPool;
 
 		optionsScreen = new OptionsMenu();
-		prodMode();
+		 prodMode();
 		// devMode();
+		SoundManager.startJammin();
 	}
 
 	private void prodMode() {
@@ -94,6 +95,7 @@ public class Game {
 	}
 
 	public void update() {
+		SoundManager.checkMusic();
 		if (shifter != null) {
 			shifter.update();
 		} else {

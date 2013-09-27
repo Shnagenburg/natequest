@@ -1,6 +1,7 @@
 package NateQuest.Story;
 
 import GameClasses.CUtil;
+import GameClasses.SoundManager;
 import GameClasses.Sprite;
 import NateQuest.Entity;
 import NateQuest.GameScreen;
@@ -32,9 +33,11 @@ public class VictoryCondition extends Entity {
 	}
 
 	public void update() {
+		SoundManager.startReunited();
 		grabHero();
-		hero.bIsSleeping = true;
-
+		if (hero != null) {
+			hero.bIsSleeping = true;
+		}
 		timer += CUtil.ElapsedTime;
 		if (timer > MAX_WAIT_TIME) {
 			CUtil.GameHandle.showVictoryScreen();

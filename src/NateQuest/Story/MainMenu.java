@@ -34,6 +34,7 @@ public class MainMenu extends GameScreen {
 		titlebg.setPosition(CUtil.Dimensions.width / 2, 600);
 		titlebg.setDestination(CUtil.Dimensions.width / 2, 200);
 		// SoundManager.playMusic(SoundManager.town, 0.3f);
+		
 	}
 
 	public void update() {

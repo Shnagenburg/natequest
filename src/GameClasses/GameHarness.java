@@ -58,7 +58,7 @@ public class GameHarness extends BasicGame {
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		CUtil.Harness = this;
-		gc.setShowFPS(true);
+		gc.setShowFPS(false);
 		// locks mouse into screen
 		gc.setMouseGrabbed(true);
 		CUtil.SlickGameContainer = gc;
@@ -91,6 +91,7 @@ public class GameHarness extends BasicGame {
 		CUtil.GameHandle = game;
 
 		gc.setTargetFrameRate(FPS);
+		gc.setVSync(true);
 		gc.getGraphics().setBackground(new Color(25, 25, 10));
 		// gc.getGraphics().setBackground(new Color(0, 0, 0));
 		CUtil.GameGraphics = gc.getGraphics();

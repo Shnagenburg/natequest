@@ -27,7 +27,7 @@ public class Bat extends Enemy {
 		FIRE_TIME = 500;
 		MOVE_SPEED = 0.28f;
 		MOVE_TIME = 1200;
-		health = 15;
+		health = 11;
 		SheetedSprite sprite = new SheetedSprite(
 				CUtil.QuickImage("bat4frames2"), 4, 125);
 		drawable = new Drawable(this, sprite, LayerConstants.CHARACTERS);
